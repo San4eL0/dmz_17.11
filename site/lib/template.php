@@ -20,23 +20,35 @@ function renderHeader(string $active = ''): void
     $adminLink = isAdminLoggedIn()
         ? '<a href="admin/index.php">Панель управления</a>'
         : '<a href="login.php">Вход для администратора</a>';
+
+    $theme = 'theme-neon';
+    if (isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'light') {
+        $theme = 'theme-light';
+    }
     ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="<?= $theme ?>">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= e($name) ?></title>
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/index.php" class="logo"><?= e($name) ?></a>
+    <a href="index.php" class="logo"><?= e($name) ?></a>
     <nav class="main-nav">
-      <a href="/index.php" class="<?= $active === 'home' ? 'active' : '' ?>">Главная</a>
-      <a href="/catalog.php" class="<?= $active === 'catalog' ? 'active' : '' ?>">Каталог</a>
+      <a href="index.php" class="<?= $active === 'home' ? 'active' : '' ?>">Главная</a>
+      <a href="catalog.php" class="<?= $active === 'catalog' ? 'active' : '' ?>">Каталог</a>
       <?= $adminLink ?>
+      <button type="button" class="theme-toggle" id="themeToggle" title="Сменить тему" aria-label="Сменить тему">
+        <span class="icon-moon">&#9681;</span>
+        <span class="icon-sun" hidden>&#9728;</span>
+      </button>
     </nav>
   </div>
   <div class="slogan"><?= e($slogan) ?></div>
@@ -70,6 +82,7 @@ function renderFooter(): void
     </div>
   </div>
 </footer>
+<script src="assets/js/theme.js"></script>
 </body>
 </html>
     <?php

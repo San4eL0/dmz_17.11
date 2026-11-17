@@ -1,14 +1,25 @@
 <?php
 /**
  * Конфигурация сервиса «Сладкие сны»
+ *
+ * Настройки БД берутся из переменных окружения (InfinityFree задаёт их
+ * автоматически через файл /home/USER/htdocs/dbconfig.php, но мы можем
+ * указать их и вручную ниже). Для локального запуска установите значения
+ * по умолчанию.
  */
+$dbHost = getenv('DB_HOST') ?: '127.0.0.1';
+$dbPort = getenv('DB_PORT') ?: '3306';
+$dbName = getenv('DB_NAME') ?: 'hotel';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPass = getenv('DB_PASS') ?: 'root';
+
 return [
     'db' => [
-        'host' => '127.0.0.1',
-        'port' => 3306,
-        'dbname' => 'hotel',
-        'user' => 'root',
-        'password' => 'root',
+        'host' => $dbHost,
+        'port' => $dbPort,
+        'dbname' => $dbName,
+        'user' => $dbUser,
+        'password' => $dbPass,
         'charset' => 'utf8mb4',
     ],
     'app' => [

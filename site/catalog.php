@@ -24,7 +24,7 @@ renderHeader('catalog');
 <h1>Каталог номеров</h1>
 <p class="result-count">Найдено номеров: <?= (int)$count ?> из 6.</p>
 
-<form class="filter-form" method="get" action="/catalog.php">
+<form class="filter-form" method="get" action="catalog.php">
   <div class="filter-group">
     <label for="category">Категория</label>
     <select id="category" name="category">
@@ -63,7 +63,7 @@ renderHeader('catalog');
 
   <div class="filter-actions">
     <button type="submit" class="btn btn-primary">Применить</button>
-    <a href="/catalog.php" class="btn btn-secondary">Сбросить фильтр</a>
+    <a href="catalog.php" class="btn btn-secondary">Сбросить фильтр</a>
   </div>
 </form>
 
@@ -84,7 +84,7 @@ renderHeader('catalog');
           <?php if ($room['has_fridge']): ?><li>Холодильник</li><?php endif; ?>
           <?php if ($room['has_wifi']): ?><li>Wi-Fi</li><?php endif; ?>
         </ul>
-        <a href="/booking.php?id=<?= (int)$room['id'] ?>" class="btn btn-primary">Забронировать</a>
+        <a href="booking.php?id=<?= (int)$room['id'] ?>" class="btn btn-primary">Забронировать</a>
       </article>
     <?php endforeach; ?>
   </div>

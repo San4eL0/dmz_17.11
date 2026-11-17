@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if ($message || $error) {
-        header('Location: /admin/index.php?message=' . urlencode($message) . '&error=' . urlencode($error));
+        header('Location: index.php?message=' . urlencode($message) . '&error=' . urlencode($error));
         exit;
     }
 }
@@ -57,8 +57,8 @@ renderHeader('admin');
 <?php endif; ?>
 
 <div class="admin-actions">
-  <a href="/admin/index.php" class="btn btn-secondary">Обновить</a>
-  <a href="/logout.php" class="btn btn-danger">Выход</a>
+  <a href="index.php" class="btn btn-secondary">Обновить</a>
+  <a href="../logout.php" class="btn btn-danger">Выход</a>
 </div>
 
 <?php if (empty($bookings)): ?>

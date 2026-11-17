@@ -158,3 +158,21 @@ function imageTag(array $room): string
     $alt = e(strip_tags($room['category'] ?? 'Номер'));
     return '<img src="' . $src . '" alt="' . $alt . '">';
 }
+
+/**
+ * Список путей к изображениям номера по его категории (для слайдера).
+ * Для каждой категории доступны 2 картинки.
+ */
+function roomImages(string $category): array
+{
+    $map = [
+        'Стандарт' => ['assets/img/room-standard-1.jpg', 'assets/img/room-standard-2.jpg'],
+        'Студия'   => ['assets/img/room-studio-1.jpg', 'assets/img/room-studio-2.jpg'],
+        'Люкс'     => ['assets/img/room-lux-1.jpg', 'assets/img/room-lux-2.jpg'],
+    ];
+    $key = ucfirst(mb_strtolower(trim($category)));
+    if (isset($map[$key])) {
+        return $map[$key];
+    }
+    return ['assets/img/room-default.jpg'];
+}

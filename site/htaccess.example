@@ -1,0 +1,23 @@
+# ПРИМЕР конфигурации переменных окружения для InfinityFree
+# Скопируйте в корень сайта как .htaccess и подставьте реальные значения.
+#
+# Как узнать значения:
+#  - Панель InfinityFree -> MySQL Databases -> там указаны хост, база, пользователь.
+
+SetEnv DB_HOST sqlXXX.infinityfree.com
+SetEnv DB_NAME youruser_hotel
+SetEnv DB_USER youruser
+SetEnv DB_PASS YOUR_DATABASE_PASSWORD
+
+# Открытие index.php по умолчанию и редирект
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+</IfModule>
+
+# Защита служебных файлов от прямого доступа
+<FilesMatch "\.(sql|conf)$">
+  Require all denied
+</FilesMatch>

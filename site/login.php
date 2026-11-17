@@ -9,7 +9,7 @@ session_start_safe();
 
 // Уже вошёл — в панель
 if (isAdminLoggedIn()) {
-    header('Location: /admin/index.php');
+    header('Location: admin/index.php');
     exit;
 }
 
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $login = trim($_POST['login'] ?? '');
         $password = $_POST['password'] ?? '';
         if (adminLogin($login, $password)) {
-            header('Location: /admin/index.php');
+            header('Location: admin/index.php');
             exit;
         }
         $error = 'Неверный логин или пароль.';
@@ -37,7 +37,7 @@ renderHeader();
     <div class="alert alert-error"><?= e($error) ?></div>
   <?php endif; ?>
 
-  <form class="auth-form" method="post" action="/login.php">
+  <form class="auth-form" method="post" action="login.php">
     <input type="hidden" name="csrf" value="<?= e(csrfToken()) ?>">
 
     <div class="form-field">

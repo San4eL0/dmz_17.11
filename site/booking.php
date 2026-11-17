@@ -59,7 +59,7 @@ $title = $room ? 'Бронирование номера' : 'Номер не на
 ?>
 <?php if (!$room): ?>
   <h1>Номер не найден</h1>
-  <p><a href="/catalog.php" class="btn btn-primary">Вернуться в каталог</a></p>
+  <p><a href="catalog.php" class="btn btn-primary">Вернуться в каталог</a></p>
 <?php else: ?>
   <h1>Бронирование номера</h1>
   <p class="room-summary">
@@ -67,6 +67,14 @@ $title = $room ? 'Бронирование номера' : 'Номер не на
     <?= rtrim(rtrim(number_format((float)$room['area'], 2, '.', ''), '0'), '.') ?> м² ·
     <?= number_format((float)$room['price'], 0, ',', ' ') ?> ₽/сутки
   </p>
+
+  <!-- Слайдер изображений номера -->
+  <div class="gallery" id="gallery">
+    <div class="gallery-clip" id="galleryClip"></div>
+    <button class="gallery-btn gallery-prev" type="button" id="galPrev" aria-label="Назад">&#10094;</button>
+    <button class="gallery-btn gallery-next" type="button" id="galNext" aria-label="Вперёд">&#10095;</button>
+    <div class="gallery-dots" id="galDots"></div>
+  </div>
 
   <?php if (!empty($errors['form'])): ?>
     <div class="alert alert-error"><?= e($errors['form']) ?></div>
@@ -78,7 +86,7 @@ $title = $room ? 'Бронирование номера' : 'Номер не на
     </div>
   <?php endif; ?>
 
-  <form class="booking-form" method="post" action="/booking.php?id=<?= (int)$room['id'] ?>" novalidate>
+  <form class="booking-form" method="post" action="booking.php?id=<?= (int)$room['id'] ?>" novalidate>
     <input type="hidden" name="csrf" value="<?= e(csrfToken()) ?>">
     <input type="hidden" name="room_id" value="<?= (int)$room['id'] ?>">
 
@@ -131,7 +139,8 @@ $title = $room ? 'Бронирование номера' : 'Номер не на
 
   <script>
     window.BOOKED_RANGES = <?= json_encode(getUnavailableRanges((int)$room['id']), JSON_UNESCAPED_UNICODE) ?>;
+    window.ROOM_IMAGES = <?= json_encode(roomImages(($room['category'] ?? '')), JSON_UNESCAPED_UNICODE) ?>;
   </script>
-  <script src="/assets/js/booking.js"></script>
+  <script src="assets/js/booking.js"></script>
 <?php endif; ?>
 <?php renderFooter(); ?>
