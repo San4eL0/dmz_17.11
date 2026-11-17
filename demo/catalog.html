@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сладкие сны — Каталог</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Сладкие сны</a>
+    <nav class="main-nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html" class="active">Каталог</a>
+    </nav>
+  </div>
+  <div class="slogan">Сладкие сны — ваш идеальный отдых</div>
+</header>
+
+<main class="container page">
+  <h1>Каталог номеров</h1>
+  <p class="result-count">Найдено номеров: <span id="count">6</span> из 6.</p>
+
+  <form class="filter-form" id="filterForm">
+    <div class="filter-group">
+      <label for="category">Категория</label>
+      <select id="category" name="category">
+        <option value="">Все категории</option>
+        <option value="Стандарт">Стандарт</option>
+        <option value="Студия">Студия</option>
+        <option value="Люкс">Люкс</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="price_min">Цена от (₽)</label>
+      <input type="number" id="price_min" name="price_min" min="0" placeholder="0">
+    </div>
+
+    <div class="filter-group">
+      <label for="price_max">Цена до (₽)</label>
+      <input type="number" id="price_max" name="price_max" min="0" placeholder="∞">
+    </div>
+
+    <div class="filter-group">
+      <label for="places">Количество мест</label>
+      <select id="places" name="places">
+        <option value="">Любое</option>
+        <option value="2">2 места</option>
+        <option value="3">3 места</option>
+        <option value="4">4 места</option>
+      </select>
+    </div>
+
+    <div class="filter-actions">
+      <button type="submit" class="btn btn-primary">Применить</button>
+      <button type="button" class="btn btn-secondary" id="resetBtn">Сбросить фильтр</button>
+    </div>
+  </form>
+
+  <div class="room-grid" id="roomGrid"></div>
+  <p class="empty-state" id="empty" hidden>По заданным условиям номера не найдены.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="contacts">
+      <p><strong>Контакты</strong></p>
+      <p>Адрес: г. Новокузнецк, ул. Садовая, д. 12</p>
+      <p>Режим работы: круглосуточно</p>
+      <p>Телефон: +7(900)000-00-00</p>
+      <p>E-mail: info@sladkiesny.ru</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/catalog.js"></script>
+</body>
+</html>

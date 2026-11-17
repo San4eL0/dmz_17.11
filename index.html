@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДЭ 09.02.09 — Сервис бронирования «Сладкие сны»</title>
+<link rel="stylesheet" href="demo/assets/css/style.css">
+<style>
+  body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #1b2631; color: #ecf0f1; }
+  .lz-wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px; }
+  h1 { font-size: 30px; color: #f5b041; margin-bottom: 8px; }
+  .sub { color: #bdc3c7; font-size: 16px; margin-bottom: 32px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+  .card { background: #22303c; border: 1px solid #34495e; border-radius: 12px; padding: 24px; text-decoration: none; color: #ecf0f1; transition: transform .15s, border-color .15s; }
+  .card:hover { transform: translateY(-3px); border-color: #f5b041; }
+  .card .n { font-size: 13px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; }
+  .card .t { font-size: 18px; font-weight: 700; margin: 8px 0; }
+  .card .d { font-size: 14px; color: #bdc3c7; }
+  .demo-note { margin-top: 40px; background: #22303c; border: 1px dashed #7f8c8d; border-radius: 12px; padding: 20px; font-size: 14px; color: #bdc3c7; }
+  .demo-note code { background: #1b2631; padding: 2px 6px; border-radius: 4px; color: #f5b041; }
+</style>
+</head>
+<body>
+<div class="lz-wrap">
+  <h1>Демо-экзамен 09.02.09 «Веб-разработка»</h1>
+  <p class="sub">Сервис бронирования номеров гостиницы «Сладкие сны» — GitHub Pages</p>
+
+  <div class="cards">
+    <a class="card" href="demo/index.html">
+      <div class="n">Задание 2 · Прототип</div>
+      <div class="t">Главная страница</div>
+      <div class="d">Шапка с названием и слоганом, подвал с контактами.</div>
+    </a>
+    <a class="card" href="demo/catalog.html">
+      <div class="n">Задание 2 · Прототип</div>
+      <div class="t">Каталог номеров</div>
+      <div class="d">6 номеров, фильтры «Применить»/«Сбросить», кнопка «Забронировать».</div>
+    </a>
+    <a class="card" href="demo/booking.html">
+      <div class="n">Задания 2, 4 · Прототип</div>
+      <div class="t">Бронирование номера</div>
+      <div class="d">Форма с валидацией дат и сообщением об успехе.</div>
+    </a>
+    <a class="card" href="demo/admin.html">
+      <div class="n">Задание 4 · Прототип</div>
+      <div class="t">Панель управления</div>
+      <div class="d">Список заявок, одобрение / отклонение / удаление.</div>
+    </a>
+  </div>
+
+  <div class="demo-note">
+    <b>Примечание.</b> Это статичная демо-версия, размещённая на GitHub Pages
+    (работает без PHP/MySQL, данные эмулируются в браузере). Рабочая версия на
+    PHP + MySQL лежит в папке <code>site/</code>: развёртывается по
+    <code>schema.sql</code> и <code>seed.sql</code>. Прототипы с настоящими
+    диаграммами — в <code>task1_diagrams/</code>, HTML-прототипы задания 2 — в
+    <code>task2_prototypes/</code>.
+  </div>
+</div>
+</body>
+</html>
