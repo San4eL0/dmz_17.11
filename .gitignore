@@ -1,0 +1,15 @@
+# ОС
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Локальная конфигурация БД (пароли) — не загружать
+site/lib/config.local.php
+
+# Архивы и временные файлы
+*.zip
+*.tar.gz

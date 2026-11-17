@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сладкие сны — Каталог</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Сладкие сны</a>
+    <nav class="main-nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html" class="active">Каталог</a>
+    </nav>
+  </div>
+  <div class="slogan">Сладкие сны — ваш идеальный отдых</div>
+</header>
+
+<main class="container page">
+  <h1>Каталог номеров</h1>
+
+  <form class="filter-form" method="get" action="catalog.html">
+    <div class="filter-group">
+      <label for="category">Категория</label>
+      <select id="category" name="category">
+        <option value="">Все категории</option>
+        <option value="standard">Стандарт</option>
+        <option value="studio">Студия</option>
+        <option value="lux">Люкс</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="price">Цена (за сутки)</label>
+      <select id="price" name="price">
+        <option value="">Любая</option>
+        <option value="2000-5000">от 2 000 до 5 000 ₽</option>
+        <option value="5000-9000">от 5 000 до 9 000 ₽</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="places">Количество мест</label>
+      <select id="places" name="places">
+        <option value="">Любое</option>
+        <option value="1">1 место</option>
+        <option value="2">2 места</option>
+        <option value="3">3 места</option>
+      </select>
+    </div>
+    <div class="filter-actions">
+      <button type="submit" class="btn btn-primary">Применить</button>
+      <button type="reset" class="btn btn-secondary" onclick="window.location='catalog.html'">Сбросить фильтр</button>
+    </div>
+  </form>
+
+  <div class="room-grid">
+    <article class="room-card">
+      <img src="img/room1.jpg" alt="Стандартный номер">
+      <h2>Стандарт</h2>
+      <p class="price">3 500 ₽ / сутки</p>
+      <ul class="features">
+        <li>2 места</li>
+        <li>20 м²</li>
+        <li>Кондиционер</li>
+        <li>Телевизор</li>
+        <li>Wi-Fi</li>
+      </ul>
+      <a href="booking.html?id=1" class="btn btn-primary">Забронировать</a>
+    </article>
+
+    <article class="room-card">
+      <img src="img/room2.jpg" alt="Студия">
+      <h2>Студия</h2>
+      <p class="price">6 000 ₽ / сутки</p>
+      <ul class="features">
+        <li>2 места</li>
+        <li>30 м²</li>
+        <li>Кондиционер</li>
+        <li>Холодильник</li>
+        <li>Wi-Fi</li>
+      </ul>
+      <a href="booking.html?id=2" class="btn btn-primary">Забронировать</a>
+    </article>
+
+    <article class="room-card">
+      <img src="img/room3.jpg" alt="Люкс">
+      <h2>Люкс</h2>
+      <p class="price">8 500 ₽ / сутки</p>
+      <ul class="features">
+        <li>3 места</li>
+        <li>45 м²</li>
+        <li>Кондиционер</li>
+        <li>Телевизор</li>
+        <li>Холодильник</li>
+        <li>Wi-Fi</li>
+      </ul>
+      <a href="booking.html?id=3" class="btn btn-primary">Забронировать</a>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="contacts">
+      <p><strong>Контакты</strong></p>
+      <p>Адрес: г. Новокузнецк, ул. Садовая, д. 12</p>
+      <p>Режим работы: круглосуточно</p>
+      <p>Телефон: +7(900)000-00-00</p>
+      <p>E-mail: info@sladkiesny.ru</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

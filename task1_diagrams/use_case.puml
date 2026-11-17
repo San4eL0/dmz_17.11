@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+actor "Гость" as guest
+actor "Администратор" as admin
+
+rectangle "Сервис бронирования номеров гостиницы «Сладкие сны»" {
+  usecase "Просматривать контент сайта" as UC1
+  usecase "Искать номер в каталоге" as UC2
+  usecase "Фильтровать номера по категории, цене и количеству мест" as UC3
+  usecase "Просматривать информацию о номере" as UC4
+  usecase "Бронировать номер" as UC5
+  usecase "Просматривать список всех заявок" as UC6
+  usecase "Изменять статус заявки (Одобрена/Отклонена)" as UC7
+  usecase "Управлять каталогом номеров (добавление, редактирование, удаление)" as UC8
+}
+
+guest --> UC1
+guest --> UC2
+guest --> UC3
+guest --> UC4
+guest --> UC5
+
+admin --> UC5
+admin --> UC6
+admin --> UC7
+admin --> UC8
+UC3 .> UC2 : <<include>>
+UC4 .> UC2 : <<include>>
+UC5 .> UC3 : <<include>>
+
+@enduml
